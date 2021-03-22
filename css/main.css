@@ -1,0 +1,96 @@
+nav {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  min-height: 10vh; }
+  @media (min-width: 768px) {
+    nav {
+      padding: 1rem 2rem; } }
+
+.spinner {
+  border: 2px solid #fff;
+  border-top: 2px solid rgba(77, 72, 69, 0.24);
+  border-right: 2px solid rgba(77, 72, 69, 0.24);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  animation: spin 1s linear infinite;
+  font-size: 50px;
+  margin: 10px auto; }
+  .spinner.infinite-scroll {
+    display: block;
+    position: relative;
+    margin: 10px auto; }
+  .spinner.reload {
+    display: inline;
+    position: absolute;
+    margin-left: -32px;
+    margin-top: -64px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.giphy-content {
+  position: relative;
+  min-height: 90vh;
+  max-width: 992px;
+  margin: 0 auto; }
+  .giphy-content .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem; }
+    @media (min-width: 768px) {
+      .giphy-content .grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+    .giphy-content .grid .card img {
+      width: 100%;
+      height: auto; }
+
+.modal-bkg {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 25, 65, 0.9);
+  display: none; }
+  .modal-bkg.is-active {
+    display: block; }
+  .modal-bkg .modal-card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f2251;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.17);
+    border-radius: 0.2857rem;
+    max-width: 500px;
+    padding: 24px;
+    max-height: calc(100% - 20px);
+    overflow-y: auto; }
+    .modal-bkg .modal-card .modal-content {
+      position: relative;
+      width: 100%; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #eceef0; }
+
+.container {
+  position: relative; }
+
+h1 {
+  color: #00000012; }

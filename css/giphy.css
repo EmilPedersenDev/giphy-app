@@ -1,0 +1,15 @@
+.giphy-content {
+  position: relative;
+  min-height: 90vh;
+  max-width: 992px;
+  margin: 0 auto; }
+  .giphy-content .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem; }
+    @media (min-width: 768px) {
+      .giphy-content .grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+    .giphy-content .grid .card img {
+      width: 100%;
+      height: auto; }

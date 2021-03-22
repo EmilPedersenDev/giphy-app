@@ -1,0 +1,23 @@
+@import "./colors.scss";
+@import "./nav.scss";
+@import "./spinner.scss";
+@import "./giphy.scss";
+@import "./modal.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $secondary-bkg;
+}
+
+.container {
+  position: relative;
+}
+
+h1 {
+  color: $nav-bkg;
+}

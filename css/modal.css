@@ -1,0 +1,26 @@
+.modal-bkg {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 25, 65, 0.9);
+  display: none; }
+  .modal-bkg.is-active {
+    display: block; }
+  .modal-bkg .modal-card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f2251;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.17);
+    border-radius: 0.2857rem;
+    max-width: 500px;
+    padding: 24px;
+    max-height: calc(100% - 20px);
+    overflow-y: auto; }
+    .modal-bkg .modal-card .modal-content {
+      position: relative;
+      width: 100%; }
