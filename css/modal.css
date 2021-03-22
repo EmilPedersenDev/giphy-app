@@ -23,4 +23,15 @@
     overflow-y: auto; }
     .modal-bkg .modal-card .modal-content {
       position: relative;
-      width: 100%; }
+      width: 100%;
+      height: 100%; }
+      .modal-bkg .modal-card .modal-content .modal-body {
+        height: 80%;
+        text-align: center; }
+      .modal-bkg .modal-card .modal-content .modal-footer {
+        height: 20%;
+        display: flex;
+        justify-content: space-between; }
+        .modal-bkg .modal-card .modal-content .modal-footer img {
+          width: 70px;
+          height: auto; }

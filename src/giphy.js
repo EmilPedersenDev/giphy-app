@@ -2,6 +2,8 @@ const testApi = "https://rickandmortyapi.com/api/character";
 const apiKey = "GzN8VM3Dsp6i2X8OeYQYhcRgH9BosP6T";
 let offset = 0;
 let allGiphys = [];
+let nextImageIndex = undefined;
+let previousImageIndex = undefined;
 const realGiphyApi = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&offset=${offset}`;
 
 let grid = document.querySelector(".grid");
@@ -56,28 +58,58 @@ function showSpinner(isFetching, isInfiniteScroll) {
 
 fetchRandomGiphys()
   .then((result) => {
-    allGiphys = result.map((gif) => {
+    allGiphys = result.map((gif, i) => {
       let card = document.createElement("div");
       card.classList.add("card");
       let image = document.createElement("img");
       image.src = gif.image;
-      card.addEventListener("click", function () {
-        onOpneModal(image.src);
+      card.addEventListener("click", () => {
+        onOpneModal(i);
       });
       card.appendChild(image);
       grid.appendChild(card);
-      return gif.image;
+      return { id: i, image: gif.image };
     });
   })
   .finally(() => {
     console.log(allGiphys);
   });
 
-function onOpneModal(image) {
+function onOpneModal(imgIndex) {
   modalBkg.classList.add("is-active");
-  primaryModalImg.src = image;
+  getModalImages(imgIndex);
 }
+function getModalImages(imgIndex) {
+  allGiphys.forEach((giphy, i, arr) => {
+    if (imgIndex !== i) return;
+    primaryModalImg.src = giphy.image;
+    if (i > 0) {
+      previousImageIndex = i - 1;
+      previousModalImg.src = arr[previousImageIndex].image;
+      previousModalImg.addEventListener("click", previousImg, false);
+    } else {
+      // Sätt en default bild
+      previousModalImg.src = "";
+    }
 
+    if (i < arr.length - 1) {
+      nextImageIndex = i + 1;
+      nextModalImg.src = arr[nextImageIndex].image;
+      nextModalImg.addEventListener("click", nextImg, false);
+    } else {
+      // Sätt en default bild
+      nextModalImg.src = "";
+    }
+  });
+}
+function previousImg(e) {
+  getModalImages(previousImageIndex);
+}
+function nextImg(e) {
+  getModalImages(nextImageIndex);
+}
 function closeModal(e) {
   modalBkg.classList.remove("is-active");
+  nextModalImg.removeEventListener("click", previousImg);
+  nextModalImg.removeEventListener("click", nextImg);
 }
