@@ -10,6 +10,10 @@
     @media (min-width: 768px) {
       .giphy-content .grid {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
-    .giphy-content .grid .card img {
-      width: 100%;
-      height: auto; }
+    .giphy-content .grid .card {
+      display: flex;
+      align-items: center; }
+      .giphy-content .grid .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover; }
