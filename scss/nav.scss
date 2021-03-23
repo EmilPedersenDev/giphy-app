@@ -1,10 +1,22 @@
 nav {
   background: $primary-bkg;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   min-height: 10vh;
+  box-shadow: 0px 1px 3px #00000012;
+  border: 1px solid #0000000d;
   @media (min-width: 768px) {
     padding: 1rem 2rem;
+  }
+
+  img {
+    &:last-child {
+      cursor: pointer;
+    }
   }
 }

@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
-  <title>Testing</title>
+  <title>Giphy App</title>
 </head>
 
 <body>
   <div class="container">
     <nav>
       <img src="assets/cdon-logotype.svg" alt="Cdon logo">
-      <img class="reload" src="assets/refresh.svg" alt="Cdon logo">
+      <img class="reload" src="assets/refresh.svg" alt="Reload image">
     </nav>
-    <div class="giphy-content">
+    <div class="giphy-container">
       <div class="grid"></div>
       <div class="spinner"></div>
       <div class="observable"></div>
@@ -28,7 +28,7 @@
           </div>
           <div class="modal-footer">
             <img src="" alt="giphy image" class="previous-image">
-            <button onclick="closeModal(event)">X</button>
+            <button class="close-modal-btn"><img src="assets/close.svg" alt="Close image"></button>
             <img src="" alt="giphy image" class="next-image">
           </div>
         </div>

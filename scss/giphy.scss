@@ -1,4 +1,4 @@
-.giphy-content {
+.giphy-container {
   position: relative;
   min-height: 90vh;
   max-width: 992px;
@@ -6,17 +6,23 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.3125rem;
+    padding: 0 5px;
     @media (min-width: 768px) {
+      padding: 0;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-auto-rows: 1fr;
+      grid-gap: 1rem;
     }
-    grid-gap: 1rem;
     .card {
       display: flex;
       align-items: center;
+      cursor: pointer;
       img {
         width: 100%;
         height: 220px;
         object-fit: cover;
+        border-radius: 8px;
       }
     }
   }

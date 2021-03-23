@@ -1,12 +1,20 @@
 nav {
   background: #ffffff;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  min-height: 10vh; }
+  min-height: 10vh;
+  box-shadow: 0px 1px 3px #00000012;
+  border: 1px solid #0000000d; }
   @media (min-width: 768px) {
     nav {
       padding: 1rem 2rem; } }
+  nav img:last-child {
+    cursor: pointer; }
 
 .spinner {
   border: 2px solid #fff;
@@ -39,63 +47,103 @@ nav {
   100% {
     transform: rotate(360deg); } }
 
-.giphy-content {
+.giphy-container {
   position: relative;
   min-height: 90vh;
   max-width: 992px;
   margin: 0 auto; }
-  .giphy-content .grid {
+  .giphy-container .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem; }
+    grid-gap: 0.3125rem;
+    padding: 0 5px; }
     @media (min-width: 768px) {
-      .giphy-content .grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
-    .giphy-content .grid .card {
+      .giphy-container .grid {
+        padding: 0;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-auto-rows: 1fr;
+        grid-gap: 1rem; } }
+    .giphy-container .grid .card {
       display: flex;
-      align-items: center; }
-      .giphy-content .grid .card img {
+      align-items: center;
+      cursor: pointer; }
+      .giphy-container .grid .card img {
         width: 100%;
         height: 220px;
-        object-fit: cover; }
+        object-fit: cover;
+        border-radius: 8px; }
 
 .modal-bkg {
   position: fixed;
   z-index: 9998;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(23, 25, 65, 0.9);
-  display: none; }
+  background-color: rgba(236, 238, 240, 0.85);
+  display: none;
+  height: 90vh; }
+  @media (min-width: 768px) {
+    .modal-bkg {
+      top: 0;
+      height: auto; } }
   .modal-bkg.is-active {
     display: block; }
   .modal-bkg .modal-card {
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #1f2251;
-    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.17);
-    border-radius: 0.2857rem;
-    max-width: 500px;
+    background: #eceef0;
     padding: 24px;
-    max-height: calc(100% - 20px);
+    height: 100%;
     overflow-y: auto; }
+    @media (min-width: 768px) {
+      .modal-bkg .modal-card {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+        max-width: 500px;
+        max-height: calc(100% - 20px);
+        box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.17);
+        border-radius: 0.2857rem;
+        height: auto; } }
     .modal-bkg .modal-card .modal-content {
       position: relative;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
       .modal-bkg .modal-card .modal-content .modal-body {
-        height: 80%;
         text-align: center; }
+        .modal-bkg .modal-card .modal-content .modal-body img {
+          width: 100%;
+          height: 400px;
+          object-fit: cover;
+          border-radius: 8px; }
       .modal-bkg .modal-card .modal-content .modal-footer {
         height: 20%;
         display: flex;
-        justify-content: space-between; }
+        justify-content: space-between;
+        align-items: flex-end; }
+        @media (min-width: 768px) {
+          .modal-bkg .modal-card .modal-content .modal-footer {
+            margin-top: 10px; } }
+        .modal-bkg .modal-card .modal-content .modal-footer > * {
+          cursor: pointer; }
         .modal-bkg .modal-card .modal-content .modal-footer img {
           width: 70px;
-          height: auto; }
+          height: 70px;
+          object-fit: cover;
+          border-radius: 8px; }
+        .modal-bkg .modal-card .modal-content .modal-footer button {
+          border-radius: 40px;
+          width: 56px;
+          height: 56px;
+          background: #a7abaf;
+          border: none;
+          margin-bottom: 8px; }
+          .modal-bkg .modal-card .modal-content .modal-footer button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle; }
 
 * {
   box-sizing: border-box; }
@@ -106,7 +154,8 @@ body {
   background: #eceef0; }
 
 .container {
-  position: relative; }
+  position: relative;
+  margin-top: 15vh; }
 
 h1 {
   color: #00000012; }
